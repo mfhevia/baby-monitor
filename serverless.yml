@@ -1,0 +1,30 @@
+service: baby-monitor
+
+provider:
+  name: aws
+  runtime: python3.13
+  region: eu-west-2
+
+functions:
+  api:
+    handler: app.api.main.handler
+    events: 
+      - httpApi: '*' # API Gateway HTTP API
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
+    strip: true
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!venv/**'
+    - '!__pycache__/**'
+    - '!serverless/**'
+    - '!tests/**'
+    - '!*.md'
+    - 'packages/**'
+    - 'app/**'

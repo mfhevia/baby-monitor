@@ -1,0 +1,16 @@
+[project]
+name = "baby-monitor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+    "mangum>=0.19.0",
+]
+
+[dependency-groups]
+dev = [
+    # In development mode, include the FastAPI development server.
+    "fastapi[standard]>=0.115.11",
+]
