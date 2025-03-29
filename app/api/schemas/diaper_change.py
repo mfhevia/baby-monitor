@@ -10,6 +10,6 @@ class DiaperType(str, Enum):
     BOTH = "both"
 
 
-class DiaperChangeSchema(BaseModel):
+class DiaperChangeCreateSchema(BaseModel):
     type: DiaperType
     date: Optional[datetime] = None

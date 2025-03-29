@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: baby-monitor-db
+    restart: always
+    environment:
+      POSTGRES_USER: baby_monitor_user
+      POSTGRES_PASSWORD: baby_monitor_pass
+      POSTGRES_DB: baby_monitor
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+    driver: local

@@ -12,5 +12,4 @@ class DiaperChangeUseCases(DiaperChangeRepository):
         return self.repository.create(diaper_change)
 
     def find(self):
-        print("entrou")
         return self.repository.find()

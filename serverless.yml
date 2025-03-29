@@ -16,7 +16,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: true
-    slim: true
+    slim: false
     strip: true
 package:
   patterns:
