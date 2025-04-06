@@ -10,8 +10,3 @@ SQLModel.metadata.create_all(engine)
 def get_db():
     with Session(engine) as session:
         yield session
-
-
-def init_tables():
-    SQLModel.metadata.create_all(engine)
-    print("POSTGRESQL Tables created")

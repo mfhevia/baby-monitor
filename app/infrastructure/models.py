@@ -5,6 +5,8 @@ import uuid
 
 
 class DiaperChangeModel(SQLModel, table=True):
+    __tablename__ = "diaper_changes"
+
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     type: DiaperType
     date: datetime = Field(default_factory=datetime.now)

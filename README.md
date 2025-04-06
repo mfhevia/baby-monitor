@@ -32,6 +32,17 @@ uv sync
 uv run fastapi dev ./app/api/main.py
 ```
 
+## Create Migration
+To create a migration:
+
+```sh
+alembic revision --autogenerate -m "migration name"
+```
+To apply pending migrations:
+```sh
+alembic upgrade head
+```
+
 ## 🚀 Deploying to AWS Lambda
 
 ### 1️⃣ Install Serverless Framework

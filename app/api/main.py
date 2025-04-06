@@ -3,15 +3,7 @@ from mangum import Mangum
 from app.api.routes import diaper_change
 from app.infrastructure.database import init_tables
 
-# TODO: use migrations
-
-
-def startup(app: FastAPI):
-    init_tables()
-    yield
-
-
-app = FastAPI(lifespan=startup)
+app = FastAPI()
 app.include_router(diaper_change.router)
 
 
