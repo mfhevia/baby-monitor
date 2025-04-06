@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends
-from api.schemas.diaper_change import DiaperChangeCreateSchema
-from application.uses_cases.diaper_change import DiaperChangeUseCases
-from infrastructure.database import get_db
-from infrastructure.repositories import DiaperChangeRepositoryDB
+from app.api.schemas.diaper_change import DiaperChangeCreateSchema
+from app.application.uses_cases.diaper_change import DiaperChangeUseCases
+from app.infrastructure.database import get_db
+from app.infrastructure.repositories import DiaperChangeRepositoryDB
 
 router = APIRouter()
 
@@ -19,8 +19,11 @@ def get_use_case(repository: DiaperChangeRepositoryDB = Depends(get_repository))
     return DiaperChangeUseCases(repository)
 
 
-@router.post("/diaper-changes")
-async def create_diaper_change(payload: DiaperChangeCreateSchema, use_cases: DiaperChangeUseCases = Depends(get_use_case)):
+@router.post("/diaper-changes", status_code=201)
+async def create_diaper_change(
+    payload: DiaperChangeCreateSchema,
+    use_cases: DiaperChangeUseCases = Depends(get_use_case)
+):
     try:
         event_created = use_cases.create(type=payload.type, date=payload.date)
         return {

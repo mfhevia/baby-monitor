@@ -1,6 +1,6 @@
 from sqlmodel import Field, SQLModel
 from datetime import datetime
-from domain.diaper_change.entities import DiaperType
+from app.domain.diaper_change.entities import DiaperType
 import uuid
 
 

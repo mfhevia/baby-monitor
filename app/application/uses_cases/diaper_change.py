@@ -1,5 +1,5 @@
-from domain.diaper_change.repository import DiaperChangeRepository
-from domain.diaper_change.entities import DiaperChange
+from app.domain.diaper_change.repository import DiaperChangeRepository
+from app.domain.diaper_change.entities import DiaperChange
 from datetime import datetime
 
 

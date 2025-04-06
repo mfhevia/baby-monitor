@@ -1,6 +1,6 @@
 # infrastructure/repositories.py
-from domain.diaper_change.repository import DiaperChangeRepository
-from domain.diaper_change.entities import DiaperChange
+from app.domain.diaper_change.repository import DiaperChangeRepository
+from app.domain.diaper_change.entities import DiaperChange
 from .models import DiaperChangeModel
 from sqlmodel import Session, select
 
@@ -21,6 +21,6 @@ class DiaperChangeRepositoryDB(DiaperChangeRepository):
         return db_diaper_change
 
     def find(self):
-        query = select(DiaperChangeModel)
-        diaper_changes = self.session.exec(query).all()
+        query = select(DiaperChangeModel).where()
+        diaper_changes = self.session.exec(query).all
         return diaper_changes

@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from api.routes import diaper_change
-from infrastructure.database import init_tables
+from app.api.routes import diaper_change
+from app.infrastructure.database import init_tables
+
+# TODO: use migrations
 
 
 def startup(app: FastAPI):
