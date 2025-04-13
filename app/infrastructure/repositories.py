@@ -7,16 +7,16 @@ from sqlmodel import Session, select
 
 class DiaperChangeRepositoryDB(DiaperChangeRepository):
     def __init__(self, session: Session):
-        self.session = session
+        self._session = session
 
     def create(self, diaper_change: DiaperChange) -> DiaperChange:
         db_diaper_change = DiaperChangeModel(
             type=diaper_change.type,
             date=diaper_change.date
         )
-        self.session.add(db_diaper_change)
-        self.session.commit()
-        self.session.refresh(db_diaper_change)
+        self._session.add(db_diaper_change)
+        self._session.commit()
+        self._session.refresh(db_diaper_change)
 
         return DiaperChange(
             id=str(db_diaper_change.id),
@@ -26,7 +26,7 @@ class DiaperChangeRepositoryDB(DiaperChangeRepository):
 
     def find(self) -> List[DiaperChange]:
         query = select(DiaperChangeModel).where()
-        db_diaper_changes = self.session.exec(query).all()
+        db_diaper_changes = self._session.exec(query).all()
         return [DiaperChange(
             id=str(db_diaper_change.id),
             type=db_diaper_change.type,

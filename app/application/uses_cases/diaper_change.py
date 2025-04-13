@@ -5,11 +5,11 @@ from datetime import datetime
 
 class DiaperChangeUseCases(DiaperChangeRepository):
     def __init__(self, repository: DiaperChangeRepository):
-        self.repository = repository
+        self._repository = repository
 
     def create(self, type: str, date: datetime):
         diaper_change = DiaperChange(type, date)
-        return self.repository.create(diaper_change)
+        return self._repository.create(diaper_change)
 
     def find(self):
-        return self.repository.find()
+        return self._repository.find()
