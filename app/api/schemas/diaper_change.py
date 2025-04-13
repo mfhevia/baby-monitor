@@ -13,3 +13,17 @@ class DiaperType(str, Enum):
 class DiaperChangeCreateSchema(BaseModel):
     type: DiaperType
     date: Optional[datetime] = None
+
+
+class DiaperChangeResponseDataSchema(BaseModel):
+    id: str
+    type: DiaperType
+    date: datetime
+
+
+class DiaperChangeSingleResponseSchema(BaseModel):
+    data: DiaperChangeResponseDataSchema
+
+
+class DiaperChangeListResponseSchema(BaseModel):
+    data: list[DiaperChangeResponseDataSchema]

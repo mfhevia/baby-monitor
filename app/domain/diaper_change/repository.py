@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from .entities import DiaperChange
+from domain.diaper_change.entities import DiaperChange
 
 
 class DiaperChangeRepository(ABC):

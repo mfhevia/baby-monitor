@@ -3,5 +3,8 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "ms-python.autopep8",
     "editor.tabSize": 4,
+  },
+  "files.exclude": {
+    "**/__pycache__": true
   }
 }

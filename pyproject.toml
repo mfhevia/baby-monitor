@@ -19,3 +19,6 @@ dev = [
     # In development mode, include the FastAPI development server.
     "fastapi[standard]>=0.115.11",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = "app"

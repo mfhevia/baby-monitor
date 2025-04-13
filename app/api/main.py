@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from mangum import Mangum
-from app.api.routes import diaper_change
-from app.infrastructure.database import init_tables
+from api.routes import diaper_change
 
 app = FastAPI()
 app.include_router(diaper_change.router)
