@@ -14,6 +14,21 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  db_test:
+    image: postgres:15
+    container_name: baby-monitor-db-test
+    restart: always
+    environment:
+      POSTGRES_USER: baby_monitor_user
+      POSTGRES_PASSWORD: baby_monitor_pass
+      POSTGRES_DB: baby_monitor_test
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+
 volumes:
   pgdata:
+    driver: local
+  pgdata_test:
     driver: local

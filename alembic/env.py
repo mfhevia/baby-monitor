@@ -1,5 +1,6 @@
 # cambia esto según tu estructura
-from app.infrastructure.database import engine  # o donde definas el engine
+# o donde definas el engine
+from app.infrastructure.database import engine, get_database_url
 from sqlmodel import SQLModel
 from app.infrastructure.models import DiaperChangeModel
 from logging.config import fileConfig
@@ -27,7 +28,8 @@ target_metadata = SQLModel.metadata
 
 
 # config.set_main_option("sqlalchemy.url", str(engine.url))
-
+database_url = get_database_url()
+config.set_main_option("sqlalchemy.url", database_url)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
