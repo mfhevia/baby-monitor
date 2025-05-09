@@ -26,5 +26,6 @@ package:
     - '!serverless/**'
     - '!tests/**'
     - '!*.md'
+    - '!*.env'
     - 'packages/**'
     - 'app/**'

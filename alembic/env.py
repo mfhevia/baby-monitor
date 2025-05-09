@@ -95,8 +95,6 @@ def run_migrations_online() -> None:
 
 
 if context.is_offline_mode():
-    print("Running migrations offline")
     run_migrations_offline()
 else:
-    print("Running migrations online")
     run_migrations_online()
